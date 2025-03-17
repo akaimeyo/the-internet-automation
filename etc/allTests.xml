@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="MySuite" parallel="false">
+    <test name="FirefoxTests">
+        <classes>
+            <class name="BaseTest"/>
+            <class name="AddRemoveElementsTest"/>
+            <class name="CheckboxTest"/>
+            <class name="ContextMenuTest"/>
+            <class name="DisappearingElementsTest"/>
+            <class name="DragAndDropTest"/>
+            <!--<class name="BasicAuthTest"/>-->
+        </classes>
+    </test>
+</suite>
