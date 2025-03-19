@@ -16,7 +16,7 @@ public class BasicAuthTest extends BaseTest {
         homePage = new HomePage(driver);
         basicAuthPage = new BasicAuthPage(driver);
 
-        driver.get(Statics.URL);
+        driver.get(config.loadProperty("url"));
     }
 
     @Test

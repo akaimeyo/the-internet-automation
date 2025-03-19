@@ -1,5 +1,8 @@
+import etc.ConfigFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.*;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.UnexpectedAlertBehaviour;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
@@ -11,6 +14,8 @@ import java.time.Duration;
 public class BaseTest {
 
     protected static WebDriver driver;
+
+    protected ConfigFactory config = new ConfigFactory();
 
     @AfterTest
     public void teardownTest() {
@@ -39,7 +44,7 @@ public class BaseTest {
     public void ensureOnHomePage() {
         String regex = "https:\\/\\/the-internet\\.herokuapp\\.com\\/(.*)";
 
-        if(driver.getCurrentUrl().matches(regex))
+        if (driver.getCurrentUrl().matches(regex))
             driver.navigate().back();
     }
 

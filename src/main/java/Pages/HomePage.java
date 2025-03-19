@@ -95,13 +95,13 @@ public class HomePage extends BasePage {
             open(basicAuth);
         } else if (isAlertPresent() && driver instanceof ChromeDriver) {
             Predicate<URI> uriPredicate = uri -> uri.toString().contains("herokuapp.com");
-            Supplier<Credentials> authentication = UsernameAndPassword.of(Statics.BASIC_LOGIN, Statics.BASIC_PASSWORD);
+            Supplier<Credentials> authentication = UsernameAndPassword.of(config.loadProperty("login"), config.loadProperty("password"));
             ((HasAuthentication) driver).register(uriPredicate, authentication);
         }
     }
 
     public String cookieValue() {
-        String credentials = Statics.BASIC_LOGIN + ":" + Statics.BASIC_PASSWORD;
+        String credentials = config.loadProperty("login") + ":" + config.loadProperty("password");
         return Base64.getEncoder().encodeToString(credentials.getBytes());
     }
 

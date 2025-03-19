@@ -1,15 +1,19 @@
 package Pages;
 
+import etc.ConfigFactory;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
 public class BasePage {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
+
+    protected ConfigFactory config = new ConfigFactory();
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -31,8 +35,7 @@ public class BasePage {
     }
 
     public void dismissPopup() {
-        if(isAlertPresent())
-            driver.switchTo().alert().dismiss();
+        if (isAlertPresent()) driver.switchTo().alert().dismiss();
     }
 
     public void reloadPage() {
